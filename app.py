@@ -16,9 +16,9 @@ def get_db_connection():
 @app.route("/")
 def pagina_inicial():
     conn = get_db_connection()
-    cur = conn.cursor(buffered=True)
+    cur = conn.cursor(buffered=True, dictionary=True)
     
-    cur.execute("SELECT nome, lote, quantidade_atual, validade FROM medicamentos;")
+    cur.execute("SELECT * FROM medicamentos;")
     medicamentos = cur.fetchall()
     
     cur.close()

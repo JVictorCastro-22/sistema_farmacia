@@ -92,6 +92,10 @@
                     <input type="text" name="nome" required>
                 </div>
                 <div class="form-group">
+                    <label>Descrição:</label>
+                    <input type="text" name="descricao" required>
+                </div>
+                <div class="form-group">
                     <label>Lote:</label>
                     <input type="text" name="lote" required>
                 </div>
@@ -111,28 +115,33 @@
             </form>
         </div>
 
+       <!-- Tabela de Exibição -->
         <h2>Lista de Estoque</h2>
-        <table>
+       <table>
             <thead>
                 <tr>
-                    <th>Medicamento</th>
+                    <th>Código de Barras</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
                     <th>Lote</th>
                     <th>Quantidade</th>
                     <th>Validade</th>
+                    <th>Laboratório</th>
                 </tr>
             </thead>
             <tbody>
                 {% for med in lista_medicamentos %}
                 <tr>
-                    <td>{{ med[0] }}</td>
-                    <td>{{ med[1] }}</td>
-                    <td>{{ med[2] }}</td>
-                    <td>{{ med[3] }}</td>
+                    <td>{{ med.codigo_barras }}</td>
+                    <td>{{ med.nome }}</td>
+                    <td>{{ med.descricao }}</td>
+                    <td>{{ med.lote }}</td>
+                    <td>{{ med.quantidade_atual }}</td>
+                    <td>{{ med.validade }}</td>
+                    <td>{{ med.laboratorio }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-    </div>
-
 </body>
 </html>
